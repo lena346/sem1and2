@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>Matrix.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Matrix.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">matrix</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">Matrix {</span>
+    <span class="s0">int </span><span class="s1">n</span><span class="s0">,</span><span class="s1">m</span><span class="s0">;</span>
+    <span class="s0">int</span><span class="s1">[][] mainMatrix</span><span class="s0">;</span>
+    <span class="s0">public </span><span class="s1">Matrix(</span><span class="s0">int </span><span class="s1">n</span><span class="s0">, int </span><span class="s1">m)</span>
+    <span class="s1">{</span>
+        <span class="s0">this</span><span class="s1">.n = n</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.m = m</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.mainMatrix = </span><span class="s0">new int</span><span class="s1">[</span><span class="s0">this</span><span class="s1">.n][</span><span class="s0">this</span><span class="s1">.m]</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">Matrix(</span><span class="s0">int </span><span class="s1">[][] paramMatrix)</span>
+    <span class="s1">{</span>
+        <span class="s0">this</span><span class="s1">.n = paramMatrix.length</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.m = paramMatrix[</span><span class="s2">0</span><span class="s1">].length</span><span class="s0">;</span>
+        <span class="s0">this</span><span class="s1">.mainMatrix = paramMatrix</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public int </span><span class="s1">getElement(</span><span class="s0">int </span><span class="s1">n</span><span class="s0">, int </span><span class="s1">m)</span>
+    <span class="s1">{</span>
+        <span class="s0">return this</span><span class="s1">.mainMatrix[n][m]</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setElement(</span><span class="s0">int </span><span class="s1">n</span><span class="s0">, int </span><span class="s1">m</span><span class="s0">, int </span><span class="s1">value)</span>
+    <span class="s1">{</span>
+        <span class="s0">this</span><span class="s1">.mainMatrix[n][m] = value</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getVerticalLength()</span>
+    <span class="s1">{</span>
+        <span class="s0">return this</span><span class="s1">.mainMatrix.length</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public int </span><span class="s1">getHorizontalLength()</span>
+    <span class="s1">{</span>
+        <span class="s0">return this</span><span class="s1">.mainMatrix[</span><span class="s2">0</span><span class="s1">].length</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">displayMatrix()</span>
+    <span class="s1">{</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; </span><span class="s0">this</span><span class="s1">.n</span><span class="s0">; </span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; </span><span class="s0">this</span><span class="s1">.m</span><span class="s0">; </span><span class="s1">j++)</span>
+            <span class="s1">{</span>
+                <span class="s1">System.out.print(</span><span class="s0">this</span><span class="s1">.mainMatrix[i][j] + </span><span class="s3">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">public static int</span><span class="s1">[][] transpone(</span><span class="s0">int</span><span class="s1">[][] paramMatrix)</span>
+    <span class="s1">{</span>
+        <span class="s0">int</span><span class="s1">[][] tmpMatrix = </span><span class="s0">new int</span><span class="s1">[paramMatrix[</span><span class="s2">0</span><span class="s1">].length][paramMatrix.length]</span><span class="s0">;</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; paramMatrix[</span><span class="s2">0</span><span class="s1">].length</span><span class="s0">; </span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; paramMatrix.length</span><span class="s0">; </span><span class="s1">j++)</span>
+            <span class="s1">{</span>
+                <span class="s1">tmpMatrix[i][j] = paramMatrix[j][i]</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">tmpMatrix</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static </span><span class="s1">Matrix transpone(Matrix paramMatrix)</span>
+    <span class="s1">{</span>
+        <span class="s1">Matrix tmpMatrix = </span><span class="s0">new </span><span class="s1">Matrix(paramMatrix.m</span><span class="s0">, </span><span class="s1">paramMatrix.n)</span><span class="s0">;</span>
+        <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; paramMatrix.m</span><span class="s0">; </span><span class="s1">i++)</span>
+        <span class="s1">{</span>
+            <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; paramMatrix.n</span><span class="s0">; </span><span class="s1">j++)</span>
+            <span class="s1">{</span>
+                <span class="s1">tmpMatrix.setElement(i</span><span class="s0">, </span><span class="s1">j</span><span class="s0">, </span><span class="s1">paramMatrix.getElement(j</span><span class="s0">, </span><span class="s1">i))</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">tmpMatrix</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">multiplicationbyanumb(</span><span class="s0">int </span><span class="s1">k) {</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; </span><span class="s0">this</span><span class="s1">.n</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; </span><span class="s0">this</span><span class="s1">.m</span><span class="s0">; </span><span class="s1">j++) {</span>
+                <span class="s1">System.out.print(</span><span class="s0">this</span><span class="s1">.mainMatrix[i][j] * k + </span><span class="s3">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">exponentiation(</span><span class="s0">int </span><span class="s1">p) {</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; </span><span class="s0">this</span><span class="s1">.n</span><span class="s0">; </span><span class="s1">i++) {</span>
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; </span><span class="s0">this</span><span class="s1">.m</span><span class="s0">; </span><span class="s1">j++) {</span>
+                <span class="s1">System.out.print(Math.pow(</span><span class="s0">this</span><span class="s1">.mainMatrix[i][j]</span><span class="s0">,</span><span class="s1">p) + </span><span class="s3">&quot; &quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s1">System.out.println()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static </span><span class="s1">Matrix add(Matrix first</span><span class="s0">, </span><span class="s1">Matrix second) </span><span class="s0">throws </span><span class="s1">NotEqualLengthsOfMatrixException {</span>
+        <span class="s0">if</span><span class="s1">(first.getVerticalLength() != second.getVerticalLength() ||</span>
+                <span class="s1">first.getHorizontalLength() != second.getHorizontalLength())</span>
+        <span class="s1">{</span>
+            <span class="s0">throw  new </span><span class="s1">NotEqualLengthsOfMatrixException()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">Matrix tmpMatrix = </span><span class="s0">new </span><span class="s1">Matrix(first.getVerticalLength()</span><span class="s0">, </span><span class="s1">second.getHorizontalLength())</span><span class="s0">;</span>
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; tmpMatrix.getHorizontalLength()</span><span class="s0">; </span><span class="s1">i++) {</span>
+                <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; tmpMatrix.getVerticalLength()</span><span class="s0">; </span><span class="s1">j++){</span>
+                    <span class="s1">tmpMatrix.setElement(i</span><span class="s0">, </span><span class="s1">j</span><span class="s0">, </span><span class="s1">first.getElement(i</span><span class="s0">, </span><span class="s1">j) + second.getElement(i</span><span class="s0">, </span><span class="s1">j))</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+            <span class="s0">return </span><span class="s1">tmpMatrix</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static </span><span class="s1">Matrix subtract (Matrix first</span><span class="s0">, </span><span class="s1">Matrix second) </span><span class="s0">throws </span><span class="s1">NotEqualLengthsOfMatrixException {</span>
+        <span class="s0">if</span><span class="s1">(first.getVerticalLength() != second.getVerticalLength() ||</span>
+                <span class="s1">first.getHorizontalLength() != second.getHorizontalLength())</span>
+            <span class="s0">throw  new </span><span class="s1">NotEqualLengthsOfMatrixException()</span><span class="s0">;</span>
+        <span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">Matrix tmpMatrix = </span><span class="s0">new </span><span class="s1">Matrix(first.getVerticalLength()</span><span class="s0">, </span><span class="s1">second.getHorizontalLength())</span><span class="s0">;</span>
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; tmpMatrix.getHorizontalLength()</span><span class="s0">; </span><span class="s1">i++) {</span>
+                <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; tmpMatrix.getVerticalLength()</span><span class="s0">; </span><span class="s1">j++){</span>
+                    <span class="s1">tmpMatrix.setElement(i</span><span class="s0">, </span><span class="s1">j</span><span class="s0">, </span><span class="s1">first.getElement(i</span><span class="s0">, </span><span class="s1">j) - second.getElement(i</span><span class="s0">, </span><span class="s1">j))</span><span class="s0">;</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+            <span class="s0">return </span><span class="s1">tmpMatrix</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+    <span class="s0">public static </span><span class="s1">Matrix multiply (Matrix first</span><span class="s0">, </span><span class="s1">Matrix second) </span><span class="s0">throws </span><span class="s1">NotEqualLengthsOfMatrixException {</span>
+        <span class="s0">if</span><span class="s1">(first.getHorizontalLength() != second.getVerticalLength())</span>
+            <span class="s0">throw  new </span><span class="s1">NotEqualLengthsOfMatrixException()</span><span class="s0">;</span>
+        <span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">Matrix tmpMatrix</span><span class="s0">;</span>
+            <span class="s0">int </span><span class="s1">n = first.getVerticalLength()</span><span class="s0">;</span>
+            <span class="s0">int </span><span class="s1">m = second.getHorizontalLength()</span><span class="s0">;</span>
+            <span class="s0">int </span><span class="s1">o = second.getVerticalLength()</span><span class="s0">;</span>
+            <span class="s0">int</span><span class="s1">[][] tmpArr = </span><span class="s0">new int</span><span class="s1">[n][m]</span><span class="s0">;</span>
+            <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">i &lt; n</span><span class="s0">; </span><span class="s1">i++){</span>
+                <span class="s0">for</span><span class="s1">(</span><span class="s0">int </span><span class="s1">j = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">j &lt; m</span><span class="s0">; </span><span class="s1">j++){</span>
+                    <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">k = </span><span class="s2">0</span><span class="s0">; </span><span class="s1">k &lt; o</span><span class="s0">; </span><span class="s1">k++) {</span>
+                        <span class="s1">tmpArr[i][j] += first.getElement(i</span><span class="s0">, </span><span class="s1">k) * second.getElement(k</span><span class="s0">, </span><span class="s1">j)</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+            <span class="s1">tmpMatrix = </span><span class="s0">new </span><span class="s1">Matrix(tmpArr)</span><span class="s0">;</span>
+            <span class="s0">return </span><span class="s1">tmpMatrix</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+
+<span class="s0">class </span><span class="s1">NotEqualLengthsOfMatrixException </span><span class="s0">extends </span><span class="s1">Exception {}</span>
+
+
+<span class="s0">class </span><span class="s1">MatrixMain {</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) </span><span class="s0">throws </span><span class="s1">java.lang.Exception {</span>
+
+        <span class="s0">int</span><span class="s1">[][] A = {{</span><span class="s2">2</span><span class="s0">, </span><span class="s2">2</span><span class="s0">, </span><span class="s2">2</span><span class="s1">}</span><span class="s0">,</span>
+                <span class="s1">{</span><span class="s2">1</span><span class="s0">, </span><span class="s2">1</span><span class="s0">, </span><span class="s2">1</span><span class="s1">}</span><span class="s0">,</span>
+                <span class="s1">{</span><span class="s2">3</span><span class="s0">, </span><span class="s2">3</span><span class="s0">, </span><span class="s2">3</span><span class="s1">}}</span><span class="s0">;</span>
+
+
+
+        <span class="s1">Matrix x = </span><span class="s0">new </span><span class="s1">Matrix(A)</span><span class="s0">;</span>
+        <span class="s1">x.displayMatrix()</span><span class="s0">;</span>
+        <span class="s1">x.exponentiation(</span><span class="s2">2</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">x.displayMatrix()</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
